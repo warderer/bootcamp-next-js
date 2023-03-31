@@ -1,17 +1,9 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import fetcher from '@/utils/fetcher'
-
-// Tipamos la respuesta de la API
-type Image = {
-  date?: string
-  explanation?: string
-  hdurl?: string
-  media_type?: string
-  service_version?: string
-  title?: string
-  url?: string
-}
+import ImageOfTheDay from '@/components/ImageOfTheDay'
+import { Image } from '@/types'
+import LastTenDayImages from '@/components/LastTenDayImages'
 
 type HomeProps = {
   imageOfTheDay: Image
@@ -30,6 +22,9 @@ export default function Home ({ imageOfTheDay, last10DaysImages }: HomeProps) {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>Home</h1>
+        <ImageOfTheDay {...imageOfTheDay} />
+        <LastTenDayImages images={last10DaysImages} />
+
       </main>
     </>
   )
