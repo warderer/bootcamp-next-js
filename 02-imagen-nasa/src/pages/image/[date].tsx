@@ -35,6 +35,10 @@ export async function getStaticProps ({ params }: StaticPropsParams) {
   }
 }
 
+/* If a page has Dynamic Routes and uses getStaticProps, it needs to define a list of paths to be statically generated.
+
+When you export a function called getStaticPaths (Static Site Generation) from a page that uses dynamic routes, Next.js will statically pre-render all the paths specified by getStaticPaths.
+*/
 export async function getStaticPaths () {
   return {
     paths: [],
